@@ -1,6 +1,6 @@
 // 매개변수 객체 만들기
 export function readingsOutsideRange(station, range) {
-  return station.readings.filter((readings) => !range.contain(readings.temp));
+  return station.readings.filter((readings) => !range.contains(readings.temp));
 }
 
 // 순수 데이터 객체를 수정
