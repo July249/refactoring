@@ -1,16 +1,14 @@
 export function acquireData(input) {
-  const result = [];
-  const lines = input.split("\n").slice(1);
-
-  for (const line of lines) {
-    if (line.trim() === "") continue;
-
-    const record = line.split(",");
-    if (record[1].trim() === "India") {
-      result.push({ city: record[0].trim(), phone: record[2].trim() });
-    }
-  }
-  return result;
+  return input
+    .split("\n")
+    .splice(1)
+    .filter((line) => line.trim() !== "")
+    .map((line) => line.split(","))
+    .filter((line) => line[1].trim() === "India")
+    .map((line) => ({
+      city: line[0].trim(),
+      phone: line[2].trim(),
+    }));
 }
 
 const input = `office, country, telephone\n
