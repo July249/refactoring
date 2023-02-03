@@ -1,6 +1,5 @@
 class Employee {
   #name;
-  #type;
   constructor(name) {
     this.#name = name;
   }
@@ -10,7 +9,7 @@ class Employee {
   }
 
   toString() {
-    return `${this.#name} (${this.#type})`;
+    return `${this.#name} (${this.type})`;
   }
 
   static createEmployee(name, type) {
@@ -30,6 +29,12 @@ class Employee {
 class Engineer extends Employee {
   get type() {
     return "engineer";
+  }
+}
+
+class Salesperson extends Employee {
+  get type() {
+    return "salesperson";
   }
 }
 
