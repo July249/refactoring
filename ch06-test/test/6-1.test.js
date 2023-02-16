@@ -1,5 +1,15 @@
 import { printOwing } from "../6-1";
 
+class Console {
+  #content = "";
+  constructor() {}
+  log(message) {
+    this.#content += `${message}\n`;
+  }
+  get content() {
+    return this.#content;
+  }
+}
 describe("printOwing", () => {
   it("Should print owing", () => {
     const invoice = {
@@ -13,6 +23,8 @@ describe("printOwing", () => {
       "name: 엘리\n" +
       "amount: 7\n" +
       "due: 2/20/2022\n";
-    expect(printOwing(invoice)).toBe(expected);
+    const console = new Console();
+    printOwing(invoice, console);
+    expect(console.content).toBe(expected);
   });
 });
